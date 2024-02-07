@@ -8,9 +8,10 @@ github_image="github_logo.png"
 "IMAGEN EN :" "https://www.flaticon.es/iconos-gratis/gato"
 house_price="house_predictor.jpg"
 data_base="databasequery.png"
+finance="finance_market.jpg"
 url1="https://houseprice-predictor.streamlit.app/"
 url2="https://databasequery.streamlit.app/"
-
+url3="https://financeweb.streamlit.app/"
 
 text:dict={
     "texto":{
@@ -420,6 +421,33 @@ class Me_section:
                                      ),
             rx.vstack(
                 rx.text("A NL2SQL model to query a data base through the OpenAI API.",
+                style=text.get("texto"),
+                align_items="center",
+                justify_content="center",
+                padding="10",
+
+                ), 
+                font_size=["0.5em","0.6em","0.7em","0.8em","0.9em","1em","1.1em","1.2em"],
+              
+),
+            
+            rx.hstack(
+                rx.link("Finance Web",href=url3,margin_bottom="50px",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],),
+            rx.vstack(
+                rx.image(
+                    src=finance,
+                    html_width="500px",
+                    html_height="500px",
+                    border_radius="20px",
+                    border= "5px solid #4D7387",
+                    margin_bottom="30px",
+                    align_items="center",
+                    justify_content="center",
+            ),
+                margin_right= "800px",
+                                     ),
+            rx.vstack(
+                rx.text("A Finance web using YFinance library",
                 style=text.get("texto"),
                 align_items="center",
                 justify_content="center",
