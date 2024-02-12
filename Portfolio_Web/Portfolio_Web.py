@@ -9,6 +9,7 @@ github_image="github_logo.png"
 house_price="house_predictor.jpg"
 data_base="databasequery.png"
 finance="finance_market.jpg"
+web_logo='JGM.png'
 url1="https://houseprice-predictor.streamlit.app/"
 url2="https://databasequery.streamlit.app/"
 url3="https://financeweb.streamlit.app/"
@@ -32,7 +33,7 @@ text:dict={
                     },
     },
     "heading":{
-                "font_size":["2rem","2.85rem", "4rem","5rem","5rem"],
+                "font_size":["2em","2.85em", "4em","5em"],
                 "font_weight":"500",
                 "_dark":{
                     "background":"linear-gradient(to right, #e1e1e1,#757575)",
@@ -113,10 +114,35 @@ css:dict={
         "height":"50px",
         "alignt_items":"center",
         "justify_content":"center",
+    },
+    'rect':{
+        'border-radius': '36px 36px 36px 36px',
+        '-webkit-border-radius': '36px 36px 36px 36px',
+        '-moz-border-radius': '36px 36px 36px 36px',
+        'box-shadow': '17px 16px 20px rgba(0, 0, 0, 0.4)',
+        'border': '3px solid rgba(22, 99, 130, 0.3)',
+        'border-radius': '25px',
+        'justify_content':'center',
+        'align_items':'center',},
+    "texto":{
+                "_light":{
+                    "font_style":"oblique",
+                    "font_weight":"normal",
+                    "font_family":"fantasy",
+                    "font_size":"1.5em",
+                    "color":"#4e4646",
+
+                    },
+                "_dark":{                    
+                    "font_style":"oblique",
+                    "font_weight":"normal",
+                    "font_family":"fantasy",
+                    "font_size":"1.5em",
+                    "color":"#CFCBDA",
+                    },
+    },
+
     }
-
-}
-
 class Header:
     def __init__(self):
         self.Header: rx.Hstack=rx.hstack(style=css.get("header"))
@@ -150,7 +176,7 @@ class Header:
 
 class Main:
     def __init__ (self):
-        self.box: rx.Box=rx.box(widht="100%")
+        self.box: rx.Box=rx.box(align_items='center')
         self.name:rx.Hstack=rx.hstack(
             rx.heading(
                 "Hi - I'm Juan Gonzalez",
@@ -175,12 +201,12 @@ class Main:
         titles: list=["ML Engineer","Python Developer","Business Intelligence Analyst"]
         self.badge_stack_max.children=[self.create_badges(title) for title in titles]
         self.badge_stack_min.children=[self.create_badges(title) for title in titles]
-
+                                                    
         self.crumbs: rx.Breadcrumb=rx.breadcrumb()
         data:list=[
             [github_image,"GitHub","https://github.com/JuanGM07"],
             [twitter_image,"Twitter","https://twitter.com/TranslatorData"],
-            [linkedin_image,"LinkedIn","https://www.linkedin.com/in/juan-gonz%C3%A1lez-moreno-207127283/"],
+            [linkedin_image,"LinkedIn","https://www.linkedin.com/in/jgm-datascience/"],
         ]
         self.crumbs.children=[
             self.create_breadcrumb_item(path,title,url)for path,title,url in data
@@ -193,9 +219,10 @@ class Main:
                         html_height="24px",
                         _dark={"filter":"brightness(0) invert(1)"},
                         ),
-                        rx.breadcrumb_link(
+                        rx.link(
                             title,
                             href=url,
+                            is_external=True,
                             _dark={"color":"rgba(255,255,255,0.7)"}
                         ),
             )
@@ -250,7 +277,6 @@ class Me_section:
             rx.heading(
                 "Who am I?",
                 style=text.get("heading"),
-                
             ),
             rx.box(
                 rx.text(
@@ -349,32 +375,29 @@ class Me_section:
                         padding="20", 
                         font_size=["0.5em","0.6em","0.7em","0.8em","0.9em","1em","1.1em","1.2em"],
                         widht="100%",
-
-
             ),
             rx.heading(
                 "Projects",
                 style=text.get("heading"),
                 padding="2rem",
+                position='sticky',
             ),
             rx.box(
                 rx.text(
                     """
                     I dont have experience in any company, but I worked in open source projects, and I had also make some projects to prove
-                    my knolewdge on all that I said in the last section.
+                    my knolewdge on all that I said in the last section. Click in the tittle of the projects to go the page.
                     """,
                     style=text.get("texto"),
-                    
-
                 ),
                 widht="100%",
-                padding="20",
+                padding="2rem",
                 align_items="center",
                 justify_content="center",
                 font_size=["0.5em","0.6em","0.7em","0.8em","0.9em","1em","1.1em","1.2em"],
             ),
             rx.hstack(
-                rx.link("House Price Predictor",href=url1,margin_bottom="50px",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],),
+                rx.link("House Price Predictor",href=url1,margin_bottom="1rem",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],is_external=True),
                 
             ),
             rx.vstack(
@@ -388,23 +411,37 @@ class Me_section:
                     align_items="center",
                     justify_content="center",
             ),
-                margin_right= "800px",
+                
                                      ),
+                rx.desktop_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('Scikit-Learn',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Pandas',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Numpy',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[3],
+                        spacing="1rem",
+                ),                        
+            ),
+                rx.mobile_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('Scikit-Learn',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Pandas',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Numpy',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[1],
+                        spacing="1rem",
+                ),),
             rx.vstack(
                 rx.text("A house price predictor model based on the prices of the real state market of California.",
                 style=text.get("texto"),
                 align_items="center",
                 justify_content="center",
                 margin_bottom="40px",
-                
-
                 ),  
                 font_size=["0.5em","0.6em","0.7em","0.8em","0.9em","1em","1.1em","1.2em"],
                 padding="10",
-             
-),
+                ),
             rx.hstack(
-                rx.link("Data Base Query",href=url2,margin_bottom="50px",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],),
+                rx.link("Data Base Query",href=url2,margin_bottom="50px",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],is_external=True),
                  ),
             rx.vstack(
                 rx.image(
@@ -419,6 +456,24 @@ class Me_section:
             ),
                 margin_right= "800px",
                                      ),
+                rx.desktop_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('LangChain',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Pandas',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('SQL',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[3],
+                        spacing="1rem",
+                ),                          
+            ),
+                rx.mobile_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('LangChain',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Pandas',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('SQL',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[1],
+                        spacing="1rem",
+                ),),
+
             rx.vstack(
                 rx.text("A NL2SQL model to query a data base through the OpenAI API.",
                 style=text.get("texto"),
@@ -429,10 +484,10 @@ class Me_section:
                 ), 
                 font_size=["0.5em","0.6em","0.7em","0.8em","0.9em","1em","1.1em","1.2em"],
               
-),
+                ),
             
             rx.hstack(
-                rx.link("Finance Web",href=url3,margin_bottom="50px",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],),
+                rx.link("Finance Web",href=url3,margin_bottom="50px",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],is_external=True)),
             rx.vstack(
                 rx.image(
                     src=finance,
@@ -446,18 +501,33 @@ class Me_section:
             ),
                 margin_right= "800px",
                                      ),
+                rx.desktop_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('TextBlob',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Pandas',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Requests',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[3],
+                        spacing="1rem",
+                ),                   
+            ),
+                rx.mobile_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('TextBlob',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Pandas',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('Requests',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[1],
+                        spacing="1rem",
+                ),),
             rx.vstack(
                 rx.text("A Finance web using YFinance library",
                 style=text.get("texto"),
                 align_items="center",
                 justify_content="center",
                 padding="10",
-
                 ), 
                 font_size=["0.5em","0.6em","0.7em","0.8em","0.9em","1em","1.1em","1.2em"],
               
-),
-               
+                ),
             )
     def compile_desktop_component(self) ->rx.Component:
         return rx.tablet_and_desktop(
@@ -479,9 +549,6 @@ class Me_section:
                            ]
         return self.box
                 
-        
-        
-
 class Footer:
     def __init__(self)->None:
         self.footer:rx.Hstack=rx.hstack(style=css.get("footer"))
@@ -491,13 +558,11 @@ class Footer:
                 font_size="10px",
                 font_weight="semibold",
             )
-
         )
-  
     def build(self):
         return self.footer
 
-@rx.page(route="/")
+@rx.page(route="/",image="/cover.png")
 def landing() ->rx.Component:
     rx.script("document.documentElement.lang='es'"),
     header: object=Header().build()
@@ -518,5 +583,4 @@ def landing() ->rx.Component:
         background_size="25px 25px",
         style=dots,
     )
-
 app=rx.App(style=css.get("app"))
