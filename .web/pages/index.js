@@ -22,27 +22,6 @@ import NextHead from "next/head"
 
 
 
-        function ComponentMap_0fb8c7bde874ca761b52e7c8e8eb76d3 () {
-            const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
-            return (
-                {"h1": ({node, children, ...props}) => <Heading as={`h1`} size={`2xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h2": ({node, children, ...props}) => <Heading as={`h2`} size={`xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h3": ({node, children, ...props}) => <Heading as={`h3`} size={`lg`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h4": ({node, children, ...props}) => <Heading as={`h4`} size={`md`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h5": ({node, children, ...props}) => <Heading as={`h5`} size={`sm`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h6": ({node, children, ...props}) => <Heading as={`h6`} size={`xs`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "p": ({node, children, ...props}) => <Text sx={{"marginY": "1em"}} {...props}>   {children} </Text>, "ul": ({node, children, ...props}) => <UnorderedList sx={{"marginY": "1em"}}>   {children} </UnorderedList>, "ol": ({node, children, ...props}) => <OrderedList sx={{"marginY": "1em"}}>   {children} </OrderedList>, "li": ({node, children, ...props}) => <ListItem sx={{"marginY": "0.5em"}}>   {children} </ListItem>, "a": ({node, children, ...props}) => <Link as={``} {...props}>   {children} </Link>, "code": ({node, inline, className, children, ...props}) => {     const match = (className || '').match(/language-(?<lang>.*)/);     const language = match ? match[1] : '';     if (language) {     (async () => {       try {         const module = await import(`react-syntax-highlighter/dist/cjs/languages/prism/${language}`);         SyntaxHighlighter.registerLanguage(language, module.default);       } catch (error) {         console.error(`Error importing language module for ${language}:`, error);       }     })();   }     return inline ? (         <Code {...props}>   {children} </Code>     ) : (         <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={language} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>     );       }, "codeblock": ({node, children, ...props}) => <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={`python`} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>}
-            )
-        }
-        
-
-export function Button_ef04e6f1e5c4a0a34d56cc0f86667aad () {
-  const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-  const on_click_9922dd3e837b9e087c86a2522c2c93f8 = useCallback(toggleColorMode, [addEvents, Event, colorMode, toggleColorMode])
-
-  return (
-    <Button colorScheme={`gray`} onClick={on_click_9922dd3e837b9e087c86a2522c2c93f8} sx={{"_light": {"color": "black"}, "_dark": {"color": "white"}}}>
-  <Fragment_c4944d8b5ece4892844e987a2ddfe4ae/>
-</Button>
-  )
-}
-
 export function Fragment_c4944d8b5ece4892844e987a2ddfe4ae () {
   const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
 
@@ -59,6 +38,27 @@ export function Fragment_c4944d8b5ece4892844e987a2ddfe4ae () {
 </Fragment>
 )}
 </Fragment>
+  )
+}
+
+        function ComponentMap_0fb8c7bde874ca761b52e7c8e8eb76d3 () {
+            const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
+            return (
+                {"h1": ({node, children, ...props}) => <Heading as={`h1`} size={`2xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h2": ({node, children, ...props}) => <Heading as={`h2`} size={`xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h3": ({node, children, ...props}) => <Heading as={`h3`} size={`lg`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h4": ({node, children, ...props}) => <Heading as={`h4`} size={`md`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h5": ({node, children, ...props}) => <Heading as={`h5`} size={`sm`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h6": ({node, children, ...props}) => <Heading as={`h6`} size={`xs`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "p": ({node, children, ...props}) => <Text sx={{"marginY": "1em"}} {...props}>   {children} </Text>, "ul": ({node, children, ...props}) => <UnorderedList sx={{"marginY": "1em"}}>   {children} </UnorderedList>, "ol": ({node, children, ...props}) => <OrderedList sx={{"marginY": "1em"}}>   {children} </OrderedList>, "li": ({node, children, ...props}) => <ListItem sx={{"marginY": "0.5em"}}>   {children} </ListItem>, "a": ({node, children, ...props}) => <Link as={``} {...props}>   {children} </Link>, "code": ({node, inline, className, children, ...props}) => {     const match = (className || '').match(/language-(?<lang>.*)/);     const language = match ? match[1] : '';     if (language) {     (async () => {       try {         const module = await import(`react-syntax-highlighter/dist/cjs/languages/prism/${language}`);         SyntaxHighlighter.registerLanguage(language, module.default);       } catch (error) {         console.error(`Error importing language module for ${language}:`, error);       }     })();   }     return inline ? (         <Code {...props}>   {children} </Code>     ) : (         <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={language} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>     );       }, "codeblock": ({node, children, ...props}) => <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={`python`} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>}
+            )
+        }
+        
+
+export function Button_ef04e6f1e5c4a0a34d56cc0f86667aad () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+  const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
+
+  const on_click_9922dd3e837b9e087c86a2522c2c93f8 = useCallback(toggleColorMode, [addEvents, Event, colorMode, toggleColorMode])
+
+  return (
+    <Button colorScheme={`gray`} onClick={on_click_9922dd3e837b9e087c86a2522c2c93f8} sx={{"_light": {"color": "black"}, "_dark": {"color": "white"}}}>
+  <Fragment_c4944d8b5ece4892844e987a2ddfe4ae/>
+</Button>
   )
 }
 
