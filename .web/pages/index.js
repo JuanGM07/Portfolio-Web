@@ -22,9 +22,17 @@ import NextHead from "next/head"
 
 
 
+        function ComponentMap_0fb8c7bde874ca761b52e7c8e8eb76d3 () {
+            const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
+            return (
+                {"h1": ({node, children, ...props}) => <Heading as={`h1`} size={`2xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h2": ({node, children, ...props}) => <Heading as={`h2`} size={`xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h3": ({node, children, ...props}) => <Heading as={`h3`} size={`lg`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h4": ({node, children, ...props}) => <Heading as={`h4`} size={`md`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h5": ({node, children, ...props}) => <Heading as={`h5`} size={`sm`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h6": ({node, children, ...props}) => <Heading as={`h6`} size={`xs`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "p": ({node, children, ...props}) => <Text sx={{"marginY": "1em"}} {...props}>   {children} </Text>, "ul": ({node, children, ...props}) => <UnorderedList sx={{"marginY": "1em"}}>   {children} </UnorderedList>, "ol": ({node, children, ...props}) => <OrderedList sx={{"marginY": "1em"}}>   {children} </OrderedList>, "li": ({node, children, ...props}) => <ListItem sx={{"marginY": "0.5em"}}>   {children} </ListItem>, "a": ({node, children, ...props}) => <Link as={``} {...props}>   {children} </Link>, "code": ({node, inline, className, children, ...props}) => {     const match = (className || '').match(/language-(?<lang>.*)/);     const language = match ? match[1] : '';     if (language) {     (async () => {       try {         const module = await import(`react-syntax-highlighter/dist/cjs/languages/prism/${language}`);         SyntaxHighlighter.registerLanguage(language, module.default);       } catch (error) {         console.error(`Error importing language module for ${language}:`, error);       }     })();   }     return inline ? (         <Code {...props}>   {children} </Code>     ) : (         <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={language} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>     );       }, "codeblock": ({node, children, ...props}) => <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={`python`} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>}
+            )
+        }
+        
+
 export function Button_ef04e6f1e5c4a0a34d56cc0f86667aad () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
   const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
+  const [addEvents, connectError] = useContext(EventLoopContext);
 
   const on_click_9922dd3e837b9e087c86a2522c2c93f8 = useCallback(toggleColorMode, [addEvents, Event, colorMode, toggleColorMode])
 
@@ -34,14 +42,6 @@ export function Button_ef04e6f1e5c4a0a34d56cc0f86667aad () {
 </Button>
   )
 }
-
-        function ComponentMap_0fb8c7bde874ca761b52e7c8e8eb76d3 () {
-            const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
-            return (
-                {"h1": ({node, children, ...props}) => <Heading as={`h1`} size={`2xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h2": ({node, children, ...props}) => <Heading as={`h2`} size={`xl`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h3": ({node, children, ...props}) => <Heading as={`h3`} size={`lg`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h4": ({node, children, ...props}) => <Heading as={`h4`} size={`md`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h5": ({node, children, ...props}) => <Heading as={`h5`} size={`sm`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "h6": ({node, children, ...props}) => <Heading as={`h6`} size={`xs`} sx={{"marginY": "0.5em"}} {...props}>   {children} </Heading>, "p": ({node, children, ...props}) => <Text sx={{"marginY": "1em"}} {...props}>   {children} </Text>, "ul": ({node, children, ...props}) => <UnorderedList sx={{"marginY": "1em"}}>   {children} </UnorderedList>, "ol": ({node, children, ...props}) => <OrderedList sx={{"marginY": "1em"}}>   {children} </OrderedList>, "li": ({node, children, ...props}) => <ListItem sx={{"marginY": "0.5em"}}>   {children} </ListItem>, "a": ({node, children, ...props}) => <Link as={``} {...props}>   {children} </Link>, "code": ({node, inline, className, children, ...props}) => {     const match = (className || '').match(/language-(?<lang>.*)/);     const language = match ? match[1] : '';     if (language) {     (async () => {       try {         const module = await import(`react-syntax-highlighter/dist/cjs/languages/prism/${language}`);         SyntaxHighlighter.registerLanguage(language, module.default);       } catch (error) {         console.error(`Error importing language module for ${language}:`, error);       }     })();   }     return inline ? (         <Code {...props}>   {children} </Code>     ) : (         <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={language} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>     );       }, "codeblock": ({node, children, ...props}) => <SyntaxHighlighter css={{"marginY": "1em"}} customStyle={{"marginY": "1em"}} language={`python`} style={isTrue((colorMode === "light")) ? oneLight : oneDark} {...props} children={children}/>}
-            )
-        }
-        
 
 export function Fragment_c4944d8b5ece4892844e987a2ddfe4ae () {
   const [ colorMode, toggleColorMode ] = useContext(ColorModeContext)
@@ -481,6 +481,69 @@ export default function Component() {
   {`A Finance web using YFinance library`}
 </Text>
 </VStack>
+  <HStack>
+  <Link as={NextLink} href={`https://blog-creator.streamlit.app/`} isExternal={true} sx={{"_light": {"background": "linear-gradient(to top left, #62B4FC 0%, #231421 66%)", "-webkit-background-clip": "text", "-webkit-text-fill-color": "transparent"}, "_dark": {"background": "linear-gradient(to top, #CFCFCF 0%, #698DA6 100%)", "-webkit-background-clip": "text", "-webkit-text-fill-color": "transparent"}, "marginBottom": "50px", "fontSize": ["2em", "2.5em", "3em", "3.5em"]}}>
+  {`Blog Creator`}
+</Link>
+</HStack>
+  <VStack sx={{"marginRight": "800px"}}>
+  <ChakraImage htmlHeight={`500px`} htmlWidth={`500px`} src={`blog_creator.png`} sx={{"borderRadius": "20px", "border": "5px solid #4D7387", "marginBottom": "30px", "alignItems": "center", "justifyContent": "center"}}/>
+</VStack>
+  <Box sx={{"display": ["none", "none", "none", "block"]}}>
+  <SimpleGrid columns={[3]} spacing={`1rem`}>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`LangChain`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`OpenAI API`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`TextBlob`}
+</Text>
+</Center>
+</Box>
+</SimpleGrid>
+</Box>
+  <Box sx={{"display": ["block", "none", "none", "none"]}}>
+  <SimpleGrid columns={[1]} spacing={`1rem`}>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`LangChain`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`OPenAI API`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`TextBlob`}
+</Text>
+</Center>
+</Box>
+</SimpleGrid>
+</Box>
+  <VStack sx={{"fontSize": ["0.5em", "0.6em", "0.7em", "0.8em", "0.9em", "1em", "1.1em", "1.2em"]}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#9e9e9e"}, "alignItems": "center", "justifyContent": "center", "padding": "10"}}>
+  {`A blog creator using langchain`}
+</Text>
+</VStack>
 </VStack>
 </VStack>
 </Box>
@@ -781,6 +844,69 @@ export default function Component() {
   <VStack sx={{"fontSize": ["0.5em", "0.6em", "0.7em", "0.8em", "0.9em", "1em", "1.1em", "1.2em"]}}>
   <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#9e9e9e"}, "alignItems": "center", "justifyContent": "center", "padding": "10"}}>
   {`A Finance web using YFinance library`}
+</Text>
+</VStack>
+  <HStack>
+  <Link as={NextLink} href={`https://blog-creator.streamlit.app/`} isExternal={true} sx={{"_light": {"background": "linear-gradient(to top left, #62B4FC 0%, #231421 66%)", "-webkit-background-clip": "text", "-webkit-text-fill-color": "transparent"}, "_dark": {"background": "linear-gradient(to top, #CFCFCF 0%, #698DA6 100%)", "-webkit-background-clip": "text", "-webkit-text-fill-color": "transparent"}, "marginBottom": "50px", "fontSize": ["2em", "2.5em", "3em", "3.5em"]}}>
+  {`Blog Creator`}
+</Link>
+</HStack>
+  <VStack sx={{"marginRight": "800px"}}>
+  <ChakraImage htmlHeight={`500px`} htmlWidth={`500px`} src={`blog_creator.png`} sx={{"borderRadius": "20px", "border": "5px solid #4D7387", "marginBottom": "30px", "alignItems": "center", "justifyContent": "center"}}/>
+</VStack>
+  <Box sx={{"display": ["none", "none", "none", "block"]}}>
+  <SimpleGrid columns={[3]} spacing={`1rem`}>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`LangChain`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`OpenAI API`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`TextBlob`}
+</Text>
+</Center>
+</Box>
+</SimpleGrid>
+</Box>
+  <Box sx={{"display": ["block", "none", "none", "none"]}}>
+  <SimpleGrid columns={[1]} spacing={`1rem`}>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`LangChain`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`OPenAI API`}
+</Text>
+</Center>
+</Box>
+  <Box sx={{"border-radius": "25px", "-webkit-border-radius": "36px 36px 36px 36px", "-moz-border-radius": "36px 36px 36px 36px", "box-shadow": "17px 16px 20px rgba(0, 0, 0, 0.4)", "border": "3px solid rgba(22, 99, 130, 0.3)", "justifyContent": "center", "alignItems": "center", "height": "2em", "width": "12em", "bg": "rgba(101,126,183,100)"}}>
+  <Center sx={{"alignItems": "center", "height": "100%"}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#CFCBDA"}}}>
+  {`TextBlob`}
+</Text>
+</Center>
+</Box>
+</SimpleGrid>
+</Box>
+  <VStack sx={{"fontSize": ["0.5em", "0.6em", "0.7em", "0.8em", "0.9em", "1em", "1.1em", "1.2em"]}}>
+  <Text sx={{"_light": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#4e4646"}, "_dark": {"fontStyle": "oblique", "fontWeight": "normal", "fontFamily": "fantasy", "fontSize": "1.5em", "color": "#9e9e9e"}, "alignItems": "center", "justifyContent": "center", "padding": "10"}}>
+  {`A blog creator using langchain`}
 </Text>
 </VStack>
 </VStack>

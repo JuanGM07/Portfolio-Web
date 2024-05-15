@@ -10,9 +10,11 @@ house_price="house_predictor.jpg"
 data_base="databasequery.png"
 finance="finance_market.jpg"
 web_logo='JGM.png'
+blog="blog_creator.png"
 url1="https://houseprice-predictor.streamlit.app/"
 url2="https://databasequery.streamlit.app/"
 url3="https://financeweb.streamlit.app/"
+url4="https://blog-creator.streamlit.app/"
 
 text:dict={
     "texto":{
@@ -520,6 +522,49 @@ class Me_section:
                 ),),
             rx.vstack(
                 rx.text("A Finance web using YFinance library",
+                style=text.get("texto"),
+                align_items="center",
+                justify_content="center",
+                padding="10",
+                ), 
+                font_size=["0.5em","0.6em","0.7em","0.8em","0.9em","1em","1.1em","1.2em"],
+              
+                ),
+
+            rx.hstack(
+                rx.link("Blog Creator",href=url4,margin_bottom="50px",style=text.get("markdown"),font_size=["2em","2.5em", "3em","3.5em"],is_external=True)),
+            rx.vstack(
+                rx.image(
+                    src=blog,
+                    html_width="500px",
+                    html_height="500px",
+                    border_radius="20px",
+                    border= "5px solid #4D7387",
+                    margin_bottom="30px",
+                    align_items="center",
+                    justify_content="center",
+            ),
+                margin_right= "800px",
+                                     ),
+                rx.desktop_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('LangChain',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('OpenAI API',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('TextBlob',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[3],
+                        spacing="1rem",
+                ),                   
+            ),
+                rx.mobile_only(
+                    rx.responsive_grid(
+                        rx.box(rx.center(rx.text('LangChain',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('OPenAI API',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        rx.box(rx.center(rx.text('TextBlob',style=css.get('texto')),align_items="center",height="100%"),style=css.get('rect'),height="2em", width="12em", bg="rgba(101,126,183,100)",),
+                        columns=[1],
+                        spacing="1rem",
+                ),),
+            rx.vstack(
+                rx.text("A blog creator using langchain",
                 style=text.get("texto"),
                 align_items="center",
                 justify_content="center",
